@@ -75,6 +75,7 @@ const TodoListComponent = ({ tasksList }) => {
       <TaskList data={visibleTasks} doneTask={doneTask} deleteTask={deleteTask} />
       <Input onPress={onAddPress} btnLabel="Добавить" />
       <Input onPress={onSearchPress} btnLabel="Поиск" />
+      <h1 className="top2">Artem Voychenko 	&#169;</h1>
     </div>
   );
 };
