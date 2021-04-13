@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import TodoListComponent from './todoList.component';
-import { TASKS } from './constants';
+import TodoListComponent from './TodoList.component';
+import { TASKS } from './Сonstants';
 
 
 

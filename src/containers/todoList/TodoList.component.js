@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import TaskList from "./tasksList";
-import Input from "../../components/input/input";
+import TaskList from "./TasksList";
+import Input from "../../components/input/Input";
 import PropTypes from 'prop-types';
 
 

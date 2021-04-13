@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import TodoListContainer from "./containers/todoList/todoList.container";
-import PropTypes from 'prop-types';
-import TaskItem from "./containers/todoList/taskItem";
+import TodoListContainer from "./containers/todoList/TodoList.container";
+
 
 function App() {
   return (
@@ -14,6 +13,3 @@ function App() {
 
 export default App;
 
-App.protoTypes = {
-  App: PropTypes.func.isRequired
-}
