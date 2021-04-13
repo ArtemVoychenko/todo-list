@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import TaskList from "./tasksList";
 import Input from "../../components/input/input";
+import PropTypes from 'prop-types';
+
 
 const TodoListComponent = ({ tasksList }) => {
   const [tasks, setTask] = useState(tasksList);
@@ -43,13 +45,22 @@ const TodoListComponent = ({ tasksList }) => {
   };
 
 
+  // const doneTask = (id) => {
+  //   const index = tasks.map(task => task.id).indexOf(id);
+  //   if (index !== -1){
+  //     const temp = [...tasks];
+  //     temp[index].done = true;
+  //     setTask(temp);
+  //   }
+  // };
+
   const doneTask = (id) => {
-    const index = tasks.map(task => task.id).indexOf(id);
-    if (index !== -1){
-      const temp = [...tasks];
-      temp[index].done = true;
-      setTask(temp);
-    }
+    const callback = (prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, done: true } : task
+      );
+
+    setTask(callback);
   };
 
   const deleteTask = (id) => {
@@ -80,4 +91,13 @@ const TodoListComponent = ({ tasksList }) => {
   );
 };
 
+TodoListComponent.protoTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  done: PropTypes.bool.isRequired
+};
+
 export default TodoListComponent;
+
+
+

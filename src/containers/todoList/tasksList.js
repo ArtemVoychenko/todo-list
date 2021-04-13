@@ -1,5 +1,7 @@
 import React from 'react';
 import TaskItem from "./taskItem";
+import PropTypes from 'prop-types';
+
 
 const TaskList = ({ data, deleteTask, doneTask }) => {
   return (
@@ -21,4 +23,12 @@ const TaskList = ({ data, deleteTask, doneTask }) => {
   );
 };
 
+TaskList.protoTypes = {
+  data: PropTypes.array.isRequired,
+  deleteTask: PropTypes.func.isRequired,
+  doneTask: PropTypes.func.isRequired
+}
+
+
 export default TaskList;
+

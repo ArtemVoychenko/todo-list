@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 
 const Input = ({ onPress, btnLabel }) => {
   const [value, setValue] = useState('');
@@ -26,4 +28,13 @@ const Input = ({ onPress, btnLabel }) => {
   );
 };
 
+Input.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  btnLabel: PropTypes.string.isRequired
+};
+
 export default Input;
+
+
+
+
