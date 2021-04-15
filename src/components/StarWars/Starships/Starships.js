@@ -1,12 +1,13 @@
 import {useEffect, useState} from 'react';
+import '../Films/film.css'
 
-export const People = () => {
+export const Starships = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
 
-    fetch("https://swapi.dev/api/people/")
+    fetch("https://swapi.dev/api/starships/")
       .then((res) => res.json())
       .then(({results}) => {
 
@@ -22,9 +23,9 @@ export const People = () => {
   if (!data) return <div className="loader"></div>;
 
   return (
-    <div>
+    <div className="imageBtn">
 
-      {data.map((item, id) => <p key={id}>{item.name}</p>)}
+      {data.map((item, id) => <p className="filmBtn" key={id}>{item.name}</p>)}
 
     </div>
   );

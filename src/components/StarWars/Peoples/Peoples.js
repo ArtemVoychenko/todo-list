@@ -1,12 +1,14 @@
 import {useEffect, useState} from 'react';
+import {NavLink} from "react-router-dom";
+import '../Films/film.css'
 
-export const Starships = () => {
+export const Peoples = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
 
-    fetch("https://swapi.dev/api/starships/")
+    fetch("https://swapi.dev/api/people/")
       .then((res) => res.json())
       .then(({results}) => {
 
@@ -22,9 +24,10 @@ export const Starships = () => {
   if (!data) return <div className="loader"></div>;
 
   return (
-    <div>
+    <div className="imageBtn">
 
-      {data.map((item, id) => <p key={id}>{item.name}</p>)}
+      {data.map((item, id) => <p className="filmBtn" key={id}>{item.name}</p>)}
+      {/*{data.map((item, index) => <NavLink activeStyle={{color: 'red'}} to={`/people/${item.gender}`} key={index}>{item.name}</NavLink>)}*/}
 
     </div>
   );

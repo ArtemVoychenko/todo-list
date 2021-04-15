@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import '../Films/film.css'
 
 export const Planets = () => {
   const [data, setData] = useState([]);
@@ -22,9 +23,9 @@ export const Planets = () => {
   if (!data) return <div className="loader"></div>;
 
   return (
-    <div>
+    <div className="imageBtn">
 
-      {data.map((item, id) => <p key={id}>{item.name}</p>)}
+      {data.map((item, id) => <p className="filmBtn" key={id}>{item.name}</p>)}
 
     </div>
   );

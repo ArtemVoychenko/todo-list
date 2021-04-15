@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
+import './film.css';
 
 
 export const Films = () => {
@@ -24,7 +25,7 @@ export const Films = () => {
   if (!data) return <div className="loader"></div>;
 console.log('data', data)
   return (
-    <div>
+    <div className="film">
 
       {data.map((item, index) => <NavLink activeStyle={{color: 'red'}} to={`/films/${item.episode_id}`} key={index}>{item.title}</NavLink>)}
 

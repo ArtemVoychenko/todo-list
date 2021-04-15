@@ -15,6 +15,17 @@
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
+.nav{
+  text-align: center;
+  font-size: 25px;
+}
+.main{
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  height: 600px;
+  background-image: url(https://data2.origin.com/asset/content/dam/originx/web/app/games/star-wars/star-wars-battlefront-2/celebration-edition/SWBF2_Celebration_Edition_pdp_prefeature_FeatureName_en_ww_v1.jpg/6ee2bf6c-c2d6-4dd7-a211-e84b67b4062f/original.jpg) ;
+}
 
 /* Safari */
 @-webkit-keyframes spin {

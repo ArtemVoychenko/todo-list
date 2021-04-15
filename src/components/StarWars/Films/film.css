@@ -1,0 +1,16 @@
+.film{
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  background-image: url(https://3dnews.ru/assets/external/illustrations/2017/11/27/962092/sw%20battlefront%202%20art.jpg);
+  height: 422px;
+  text-align: center;
+}
+.filmBtn{
+  text-align: right;
+}
+.imageBtn{
+  height: 400px;
+  width: 600px;
+  background-image: url(https://static6.depositphotos.com/1008404/562/i/600/depositphotos_5628395-stock-photo-man-from-star-wars.jpg);
+}
