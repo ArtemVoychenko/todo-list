@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import TaskList from "./TasksList";
 import Input from "../../components/input/Input";
 import PropTypes from 'prop-types';
+import {CommentsAppContext} from '../Context/context'
+
 
 
 const TodoListComponent = ({ tasksList }) => {
@@ -74,8 +76,14 @@ const TodoListComponent = ({ tasksList }) => {
 
   };
 
+  const contextValue = {
+    doneTask: doneTask,
+    deleteTask: deleteTask
+  };
+
   const visibleTasks = filterType === 'all' ? tasks : getFilteredTasks(filterType);
   return (
+    <CommentsAppContext.Provider value={contextValue}>
     <div className="todo">
       <h1 className="top1">Список задач:</h1>
       <div className="top">
@@ -83,13 +91,16 @@ const TodoListComponent = ({ tasksList }) => {
         <div onClick={() => setFilterType('active')}>Выполненные</div>
         <div onClick={() => setFilterType('done')}>Не выполненные</div>
       </div>
-      <TaskList data={visibleTasks} doneTask={doneTask} deleteTask={deleteTask} />
+      <TaskList data={visibleTasks}  />
       <Input onPress={onAddPress} btnLabel="Добавить" />
       <Input onPress={onSearchPress} btnLabel="Поиск" />
       <h1 className="top2">Artem Voychenko 	&#169;</h1>
     </div>
+    </CommentsAppContext.Provider>
   );
 };
+
+
 
 TodoListComponent.protoTypes = {
   title: PropTypes.string.isRequired,

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import TaskItem from "./TaskItem";
 import PropTypes from 'prop-types';
+import {CommentsAppContext} from '../Context/context'
 
 
-const TaskList = ({ data, deleteTask, doneTask }) => {
+const TaskList = ({ data }) => {
+  const {deleteTask, doneTask} = useContext(CommentsAppContext);
   return (
     <div>
       {data.map(task => (
@@ -25,8 +27,6 @@ const TaskList = ({ data, deleteTask, doneTask }) => {
 
 TaskList.protoTypes = {
   data: PropTypes.array.isRequired,
-  deleteTask: PropTypes.func.isRequired,
-  doneTask: PropTypes.func.isRequired
 }
 
 

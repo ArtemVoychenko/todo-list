@@ -20,6 +20,10 @@ const Input = ({ onPress, btnLabel }) => {
     setValue(e.target.value)
   };
 
+  if (value.length > 10) {
+    throw new Error('Ошибка');
+  }
+
   return (
     <div className="task-input">
       <input onKeyPress={handleKeyPress} onChange={onChange} value={value} />

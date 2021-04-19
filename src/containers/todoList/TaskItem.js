@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+
 const TaskItem = ({ task, deleteTask, doneTask }) => {
   const { title, done } = task;
   const className = 'task' + (task.done ? ' task-done' : '');
