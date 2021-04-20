@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter} from 'react-router-dom';
-import {RoutesWrapper} from "./components/roates/RoutesWrapper";
+import {RoutesWrapper} from "./components/routes/RoutesWrapper";
 import {Nav} from  './components/Nav/Nav'
 
 
