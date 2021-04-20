@@ -9,14 +9,14 @@ const TaskList = ({ data }) => {
   return (
     <div>
       {data.map(task => (
-        <TaskItem
+        <TaskItem key={task.id}
           task={task}
           deleteTask={() => {
-            console.log('delete');
+            // console.log('delete');
             deleteTask(task.id);
           }}
           doneTask={() => {
-            console.log('delete');
+            // console.log('delete');
             doneTask(task.id)
           }}
         />

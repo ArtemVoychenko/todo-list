@@ -11,9 +11,9 @@ const TaskItem = ({ task, deleteTask, doneTask }) => {
       <p>{title}</p>
       <div className="action-btn">
         {done ? (
-          <p onClick={deleteTask}>&#10060;</p>
+          <p  onClick={deleteTask}>&#10060;</p>
         ) : (
-          <p onClick={doneTask}>&#9989;</p>
+          <p  onClick={doneTask}>&#9989;</p>
         )}
       </div>
     </div>
