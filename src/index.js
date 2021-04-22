@@ -22,7 +22,7 @@ subscribe(() => {
 
 
 rndBTN.addEventListener('click', () => {
-  const rndText = Math.random (). toString (36) .replace (/ [^ az] + /g, '');
+  const rndText = Math.random ().toString (36).replace (/ [^ az] + /g, '');
 
   rndDispatcher(rndText);
 });
