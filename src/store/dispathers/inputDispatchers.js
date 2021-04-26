@@ -1,5 +1,6 @@
-import {rndAction, setInputTextAction} from './actions';
-import {store} from './store';
+import {rndAction, setInputTextAction} from '../actions';
+import {store} from '../store';
+
 
 const {dispatch} = store;
 

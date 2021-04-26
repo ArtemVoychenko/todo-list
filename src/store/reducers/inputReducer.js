@@ -1,11 +1,11 @@
-import {ActionTypes} from './action-types';
+import {ActionTypes} from "../action-types";
 
 const initState = {
   value: '',
   allValues: ''
 };
 
-export const reducer = (state = initState, action) => {
+export const inputReducer = (state = initState, action) => {
   switch (action.type) {
     case ActionTypes.RND:
       return {
@@ -14,9 +14,9 @@ export const reducer = (state = initState, action) => {
       }
     case ActionTypes.SET_INPUT_TEXT:
       return {
-      value: action.payload,
-      allValues: state.allValues + ' ' + action.payload
-    }
+        value: action.payload,
+        allValues: state.allValues + ' ' + action.payload
+      }
     default:
       return state;
   }
