@@ -1,4 +1,4 @@
-import {rndDispatcher, setInputTextDispatcher} from './store/dispathers/inputDispatchers';
+import {rnd, setInputText} from './store/dispathers/inputDispatchers';
 import {increment1, increment2, increment3} from "./store/dispathers/counterDispatchers";
 import {store} from './store/store';
 
@@ -24,7 +24,7 @@ subscribe(() => {
 });
 
 subscribe(() => {
-  console.log('getState()', getState())
+  // console.log('getState()', getState())
   counter.innerHTML = getState().counter;
 });
 
@@ -43,8 +43,7 @@ inc3.addEventListener('click', () => {
 rndBTN.addEventListener('click', () => {
   const rndText = Math.random ().toString (36).replace (/ [^ az] + /g, '');
 
-  rndDispatcher(rndText);
-
+   rnd(rndText);
 });
 
 let inputValue = '';
@@ -53,8 +52,9 @@ input.addEventListener('input', (e) => {
   const {value} = e.target;
   inputValue = value;
 });
+
 incBTN.addEventListener('click', () => {
-  setInputTextDispatcher(inputValue);
+  setInputText(inputValue);
   inputValue = '' ;
   input.value = '';
 });

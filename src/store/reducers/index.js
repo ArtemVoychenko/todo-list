@@ -4,5 +4,5 @@ import {inputReducer} from "./inputReducer";
 
 export const reducer = combineReducers({
   counter: counter.reducer,
-  input: inputReducer,
+  input: inputReducer.reducer,
 })

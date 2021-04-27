@@ -1,23 +1,21 @@
-import {ActionTypes} from "../action-types";
+import {createSlice} from "@reduxjs/toolkit";
 
-const initState = {
-  value: '',
-  allValues: ''
-};
-
-export const inputReducer = (state = initState, action) => {
-  switch (action.type) {
-    case ActionTypes.RND:
-      return {
-        value: action.payload,
-        allValues: state.allValues + ' ' + action.payload
-      }
-    case ActionTypes.SET_INPUT_TEXT:
-      return {
-        value: action.payload,
-        allValues: state.allValues + ' ' + action.payload
-      }
-    default:
-      return state;
+export const inputReducer = createSlice({
+  name: 'inputReducer',
+  initialState: {
+    value: '',
+    allValues: ''
+  },
+  reducers: {
+    rnd: (state, action) => {
+        state.value = action.payload;
+        state.allValues = state.allValues + ' ' + action.payload;
+    },
+    setInputText: (state, action) => {
+      state.value = action.payload;
+      state.allValues = state.allValues + ' ' + action.payload;
+    }
   }
-};
+})
+
+
