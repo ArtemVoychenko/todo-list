@@ -2,24 +2,28 @@ import React, {useState} from 'react';
 import TaskList from "./TasksList";
 import Input from "../../components/input/Input";
 import PropTypes from 'prop-types';
-import {CommentsAppContext} from '../Context/context'
+import {CommentsAppContext} from '../Context/context';
+import {useSelector} from 'react-redux';
+import {addDispatcher, deleteDispatcher, setDoneTaskDispatcher,} from "../store/dispachers/dispachers";
 
 
 
-const TodoListComponent = ({ tasksList }) => {
-  const [tasks, setTask] = useState(tasksList);
 
+const TodoListComponent = () => {
+  const storeContent = useSelector((store) => store);
   const [filterType, setFilterType] = useState('all');
-
   const [searchValue, setSearchValue] = useState('');
 
-  const onAddPress = (newTaskTitle) => {
-    const tempTasksList = [...tasks, {
-      title: newTaskTitle,
-      id: tasks.length,
-      done: false,
-    }];
-    setTask(tempTasksList);
+  const onAddPress = (title) => {
+    addDispatcher(title);
+  };
+
+  const doneTask = (id) => {
+    setDoneTaskDispatcher(id);
+  };
+
+  const deleteTask = (id) => {
+    deleteDispatcher(id);
   };
 
   const onSearchPress = (value) => {
@@ -35,45 +39,15 @@ const TodoListComponent = ({ tasksList }) => {
   const getFilteredTasks = (type) => {
     switch (type) {
       case 'active':
-        return tasks.filter(task => task.done);
+        return storeContent.inputReducer.filter(task => task.done);
       case 'done':
-        return tasks.filter(task => !task.done);
+        return storeContent.inputReducer.filter(task => !task.done);
       case 'searched':
-        return tasks.filter((item) => item.title.toLowerCase()
+        return storeContent.inputReducer.filter((item) => item.title.toLowerCase()
           .includes(searchValue.toLowerCase()));
      default:
-        return tasks;
+        return storeContent.inputReducer;
     }
-  };
-
-
-  // const doneTask = (id) => {
-  //   const index = tasks.map(task => task.id).indexOf(id);
-  //   if (index !== -1){
-  //     const temp = [...tasks];
-  //     temp[index].done = true;
-  //     setTask(temp);
-  //   }
-  // };
-
-  const doneTask = (id) => {
-    const callback = (prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, done: true } : task
-      );
-
-    setTask(callback);
-  };
-
-  const deleteTask = (id) => {
-    const index = tasks.map(task => task.id).indexOf(id);
-
-    if (index !== -1){
-      const temp = [...tasks];
-      temp.splice(index,1);
-      setTask(temp);
-    }
-
   };
 
   const contextValue = {
@@ -81,7 +55,7 @@ const TodoListComponent = ({ tasksList }) => {
     deleteTask: deleteTask
   };
 
-  const visibleTasks = filterType === 'all' ? tasks : getFilteredTasks(filterType);
+  const visibleTasks = filterType === 'all' ? storeContent.inputReducer : getFilteredTasks(filterType);
   return (
     <CommentsAppContext.Provider value={contextValue}>
     <div className="todo">

@@ -14,7 +14,6 @@ const TodoListContainer = () => {
     }, 1000);
   }, []);
 
-// console.log('isLoading', isLoading);
 
   return (
     <div>

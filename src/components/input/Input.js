@@ -7,6 +7,7 @@ const Input = ({ onPress, btnLabel }) => {
 
   const onAddTaskPress = () => {
     onPress(value);
+    setValue('');
   };
 
   const handleKeyPress = (e) => {
